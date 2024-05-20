@@ -35,7 +35,7 @@ export function Instances({ children, ...props }: JSX.IntrinsicElements['group']
   )
   return (
     <Merged meshes={instances} {...props}>
-      {(instances: ContextType) => <context.Provider value={instances} children={children} />}
+      {(instances: ContextType) => <context.Provider value={instances}>{children}</context.Provider>}
     </Merged>
   )
 }
