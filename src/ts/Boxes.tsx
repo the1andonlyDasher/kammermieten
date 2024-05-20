@@ -92,7 +92,7 @@ const Boxes = ({ number, size }: InstancedGeometryProps) => {
             }, 500);
         } else {
             setTimeout(() => {
-                controls.start({ scale: 0 }).then(() => {
+                ref && controls.start({ scale: 0 }).then(() => {
                     ref.current.position.set(
                         -viewport.width / 2 + Math.random() * 20,
                         Math.random() * 40,

@@ -1,0 +1,313 @@
+@use "../media-queries.scss" as *;
+
+/* base classes */
+.navigator {
+  position: relative;
+  top: 0;
+  padding-top: 70px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+#info {
+  border: 2px solid var(--clr-contrast-600);
+  position: absolute;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: var(--clr-contrast-600);
+  color: var(--clr-contrast-100);
+  top: -3px;
+  right: -3rem;
+  cursor: pointer;
+}
+
+#info::before {
+  position: absolute;
+  opacity: 1;
+  content: "ℹ";
+}
+
+#info::after {
+  position: absolute;
+  opacity: 0;
+  content: "✖";
+}
+
+#info.active:before {
+  opacity: 0;
+}
+
+#info.active::after {
+  opacity: 1;
+}
+
+.v {
+  background-color: var(--clr-signal-green-300) !important;
+  color: var(--clr-signal-green-500);
+}
+
+.noV {
+  background-color: var(--clr-signal-red-200) !important;
+  color: var(--clr-signal-red-400);
+}
+
+#navCanvas {
+  transition: cubic-bezier(0.23, 1, 0.32, 1);
+  position: absolute;
+  top: 20%;
+  height: 80%;
+}
+
+#annWrapper {
+  position: absolute;
+  opacity: 1;
+  top: 20%;
+  height: 80%;
+}
+
+#schematics {
+  margin: auto;
+  opacity: 1;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  padding: var(--space-m);
+  max-width: 400px;
+  max-width: 400px;
+  width: 300px;
+  height: 200px;
+  margin: 20%;
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+  transform: rotate(90deg);
+}
+@media screen and (min-width: 500px) {
+  #schematics {
+    transform: rotate(0deg);
+    min-width: unset;
+    height: 300px;
+    width: 350px;
+  }
+}
+@media screen and (min-width: 850px) {
+  #schematics {
+    max-width: 600px;
+    width: 100%;
+    height: 380px;
+    min-width: unset;
+    margin: 5%;
+  }
+}
+
+.room5 {
+  width: 13%;
+}
+
+.room7 {
+  width: 19%;
+}
+
+.room9 {
+  width: 15%;
+}
+
+.nine-top {
+  width: 24%;
+}
+
+.room10 {
+  width: 16%;
+}
+
+.room12 {
+  width: 18%;
+}
+
+.room13 {
+  width: 20%;
+}
+
+#schematics :is(.left-rooms, .right-rooms, .hall) {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+#schematics .left-rooms {
+  height: 50%;
+}
+
+#schematics #room7::before {
+  content: "7";
+}
+
+#schematics #room6::before {
+  content: "6";
+}
+
+#schematics #room5::before {
+  content: "5";
+}
+
+#schematics #room4::before {
+  content: "4";
+}
+
+#schematics #room3::before {
+  content: "3";
+}
+
+#schematics #room2::before {
+  content: "2";
+}
+
+#schematics #room1::before {
+  content: "1";
+}
+
+#schematics .right-rooms > div:nth-child(1n + 0)::before {
+  content: "8";
+}
+
+#schematics .right-rooms > div:nth-child(2n + 0)::before {
+  content: "9";
+}
+
+#schematics .right-rooms > div:nth-child(3n + 0)::before {
+  content: "10";
+}
+
+#schematics .right-rooms > div:nth-child(4n + 0)::before {
+  content: "11";
+}
+
+#schematics .right-rooms > div:nth-child(5n + 0)::before {
+  content: "12";
+}
+
+#schematics .room::before {
+  color: var(--clr-contrast-100);
+  font-size: 1rem;
+  background-color: var(--clr-contrast-600);
+  border: 2px solid var(--clr-contrast-100);
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(-90deg);
+}
+@media screen and (min-width: 850px) {
+  #schematics .room::before {
+    height: 35px;
+    border: 4px solid var(--clr-contrast-100);
+    width: 35px;
+  }
+}
+@media screen and (min-width: 500px) {
+  #schematics .room::before {
+    transform: rotate(0deg);
+  }
+}
+
+#schematics .left-rooms .room::before {
+  bottom: -25px;
+}
+@media screen and (min-width: 850px) {
+  #schematics .left-rooms .room::before {
+    bottom: -25px;
+  }
+}
+
+#schematics .right-rooms .room::before {
+  top: -25px;
+}
+@media screen and (min-width: 850px) {
+  #schematics .right-rooms .room::before {
+    top: -25px;
+  }
+}
+
+#schematics #room7::after {
+  content: "6.5m²";
+}
+
+#schematics .left-rooms > div:nth-child(2n + 0)::after {
+  content: "11m²";
+}
+
+#schematics .left-rooms > div:nth-child(3n + 0)::after {
+  content: "11m²";
+}
+
+#schematics .left-rooms > div:nth-child(4n + 0)::after {
+  content: "9.5m²";
+}
+
+#schematics .left-rooms #room1::after {
+  content: "12m²";
+}
+
+#schematics .left-rooms > div:nth-child(5n + 0)::after {
+  content: "12m²";
+}
+
+#schematics .left-rooms > div:nth-child(6n + 0)::after {
+  content: "10m²";
+}
+
+#schematics .left-rooms > div:nth-child(7n + 0)::after {
+  content: "11m²";
+}
+
+#schematics .right-rooms > div:nth-child(1n + 0)::after {
+  content: "7m²";
+}
+
+#schematics .right-rooms > div:nth-child(2n + 0)::after {
+  content: "7m²";
+}
+
+#schematics .right-rooms > div:nth-child(3n + 0)::after {
+  content: "7m²";
+}
+
+#schematics .right-rooms > div:nth-child(4n + 0)::after {
+  content: "10m²";
+}
+
+#schematics .right-rooms > div:nth-child(5n + 0)::after {
+  content: "7m²";
+}
+
+#schematics .room::after {
+  transform: rotate(-90deg);
+}
+@media screen and (min-width: 500px) {
+  #schematics .room::after {
+    transform: rotate(0deg);
+  }
+}
+
+#schematics .right-rooms {
+  height: 30%;
+}
+
+#schematics .hall {
+  height: 20%;
+}
+
+#schematics .room {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid #fff;
+  font-size: var(--fs-text);
+}

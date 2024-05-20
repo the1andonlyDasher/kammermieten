@@ -36,7 +36,7 @@ function Section(props: sectionProps) {
   const controls = useAnimation();
   return (
     <motion.section
-      viewport={{ margin: "100px", amount: 0.375, once: false }}
+      viewport={{ margin: "0px", amount: 0.375, once: false }}
       onViewportEnter={(entry) => {
         // controls.start("enter")
         entry?.isIntersecting

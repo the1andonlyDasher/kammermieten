@@ -24,9 +24,10 @@ type NavItemProps = {
   href?: string;
   name?: string;
   clickLink?: any;
+  children?: any;
 }
 
-export const NavItem = ({ href, name, clickLink }: NavItemProps, ...props: any) => {
+export const NavItem = ({ href, name, clickLink, children }: NavItemProps, ...props: any) => {
   const [isShrunk, setShrunk] = useState(false);
   useEffect(() => {
     const handler = () => {
@@ -64,7 +65,7 @@ export const NavItem = ({ href, name, clickLink }: NavItemProps, ...props: any) 
           duration: 0.75
         }}
       >
-        <Link aria-label={name} scroll={false} className={isShrunk ? `nav-link black` : `nav-link`} href={`${href}`} onClick={clickLink}>{name}</Link>
+        <Link aria-label={name} scroll={false} className={isShrunk ? `nav-link black` : `nav-link`} href={`${href}`} onClick={clickLink}>{name}{children}</Link>
       </motion.li>
     </>
   );
