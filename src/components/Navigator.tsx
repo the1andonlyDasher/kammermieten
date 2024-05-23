@@ -55,7 +55,7 @@ const variants4 = {
 };
 
 const RoomNavigator: FunctionComponent<NavigatorProps> = () => {
-    return (<motion.section id="navigator" className="gap-12" data-section-name="room-section">
+    return (<motion.section id="raeume" className="gap-12" data-section-name="room-section">
         <motion.h3 variants={variants4} initial="initial" whileInView="enter" className="font-extrabold">Räume</motion.h3>
         <motion.div className="w-full" variants={variants4} initial="initial" whileInView="enter" >
             <Image src="/images/km_grundriss.svg" alt={"Grundriss der Lagerräume"} className="mx-auto" width={600} height={200} />

@@ -22,7 +22,7 @@ const ws = Teko({
 const headers = [
   ["Zur Not:", "Immer was auf Lager"],
   ["Bei uns?", "Keine knappe Kiste."],
-  ["In jedem Fall:", "Sicher und Diskret."],
+  [`Garantiert:`, "Sicher und Diskret."],
   ["Lager' alles.", "Fast alles..."],
 ];
 
@@ -36,7 +36,7 @@ const variants = {
   animate: {
     y: 0,
     x: 0,
-    scale: 1.5,
+    scale: 1,
     opacity: 1,
   },
   exit: {
@@ -169,23 +169,23 @@ export default function Home() {
 
   return (
     <>
-      <HSec sectionName="landing" id="landing">
+      <HSec sectionName="landing" id="landing" addClass='mh_screen'>
 
-        <motion.div className="relative flex flex-col-reverse md:flex-row w-full h-full justify-center items-start">
+        <motion.div className="relative flex  flex-col-reverse md:flex-row w-full h-full justify-center items-start">
           <motion.div className='flex flex-col justify-center w-full h-full gap-4'>
             <AnimatePresence mode="wait">
               <MotionConfig transition={{ type: "spring", damping: 10, stiffness: 40, restDelta: 0.001 }}>
 
-                <motion.h1
+                <motion.dd
                   key={header1}
                   initial="initial"
                   animate="animate"
                   exit="exit"
                   variants={variants}
-                  className="origin-left text-5xl sm:text-6xl md:text-7xl text-[#836a58] font-black drop-shadow-2xl mix-blend-multiply"
+                  className="origin-left text-6xl sm:text-6xl md:text-7xl text-[#836a58] font-black drop-shadow-2xl mix-blend-multiply"
                 >
                   {header1}
-                </motion.h1>
+                </motion.dd>
 
 
                 <motion.h2

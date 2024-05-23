@@ -7,16 +7,21 @@ const variants = {
   open: {
     clipPath: "circle(100% at 50% 50%)",
     transition: {
-      type: "tween",
+      when: "beforeChildren",
+      type: "spring",
+      damping: 20,
+      stiffness: 100,
       staggerChildren: 0.07,
-      delayChildren: 0.2
+
     }
   },
   closed: {
     clipPath: "circle(0% at 50% 50%)",
     transition: {
-      delay: 0.5,
-      type: "tween",
+      when: "afterChildren",
+      type: "spring",
+      damping: 20,
+      stiffness: 100,
       staggerChildren: 0.05,
       staggerDirection: -1
     }

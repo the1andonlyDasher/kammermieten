@@ -48,7 +48,7 @@ const GL = (props: glProps) => {
                 eventSource={props.eventSource}
                 eventPrefix="client"
             >
-                <Stats />
+                {/* <Stats /> */}
                 <Model />
                 <Crates />
                 <Environment blur={10} preset="city" />

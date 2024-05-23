@@ -136,8 +136,9 @@ a {
 }
 
 .nav-link-secondary {
+  padding: 0.5rem 0;
   font-size: clamp(1em, 5vw, 1.25em);
-  color: var(--clr-primary-200);
+
   text-transform: uppercase;
 }
 

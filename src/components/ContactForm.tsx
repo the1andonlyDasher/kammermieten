@@ -21,6 +21,7 @@ const ContactForm = ({ props }: contactProps) => {
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
   const [firstName, setFirstName] = useState("");
+  const [formReady, setFormReady] = useState(true);
   const controlsForm = useAnimationControls();
   const messageControls = useAnimationControls();
   const inView = useInView(form, { once: true, margin: "100px 0px 100px 0px" });
@@ -49,7 +50,7 @@ const ContactForm = ({ props }: contactProps) => {
   const messageVariants = {
     initial: { opacity: 0 },
     enter: { opacity: 1, display: "flex" },
-    exit: { opacity: 0, display: "none" },
+    exit: { opacity: 0, transitionEnd: { display: "none" } },
   };
   const sequence = async () => {
     await controlsForm.start("exit");
@@ -60,7 +61,7 @@ const ContactForm = ({ props }: contactProps) => {
 
   const bringBackform = async (e: any) => {
     e.preventDefault();
-    await messageControls.start("exit");
+    await messageControls.start("exit").then(() => { setFormReady(true) });
     return await controlsForm.start("enter");
   };
 
@@ -92,6 +93,7 @@ const ContactForm = ({ props }: contactProps) => {
       .then(
         (result: any) => {
           setStatus("Mail ist raus!");
+          setFormReady(false)
           setTimeout(() => {
             setStatus("Abschicken");
           }, 1000);
@@ -108,10 +110,11 @@ const ContactForm = ({ props }: contactProps) => {
   };
 
   useEffect(() => {
-    if (inView) {
-      controlsForm.start("enter");
-    }
-  }, [inView, controlsForm]);
+
+    inView && formReady ? controlsForm.start("enter") :
+      controlsForm.start("exit")
+
+  }, [inView]);
 
   return (
     <>
@@ -135,7 +138,7 @@ const ContactForm = ({ props }: contactProps) => {
           </motion.div>
           <motion.form
             ref={form}
-            onSubmit={sendEmail}
+            onSubmit={testMail}
             variants={formVariants}
             initial="initial"
             animate={controlsForm}

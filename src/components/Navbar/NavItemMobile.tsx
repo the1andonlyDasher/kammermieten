@@ -18,6 +18,7 @@ const variants = {
     }
   }
 };
+
 export const NavItem = ({ href, name, toggle, secondary }: any) => {
   return (
     <>
@@ -25,7 +26,7 @@ export const NavItem = ({ href, name, toggle, secondary }: any) => {
         className={secondary ? "nav-item-secondary" : "nav-item"}
         variants={variants}
       >
-        <Link scroll={false} onClick={toggle} aria-label={name} className={secondary ? "nav-link-secondary" : "nav-link black"} href={`${href}`}>{name}</Link>
+        <Link scroll onClick={toggle} aria-label={name} className={secondary ? "nav-link-secondary" : "nav-link black"} href={`${href}`}>{name}</Link>
       </motion.li>
     </>
   );
