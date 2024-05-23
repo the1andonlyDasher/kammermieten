@@ -240,7 +240,7 @@ const Navbar = ({ logo, alt, navbar, legals }: any) => {
                     closed: { opacity: 0 },
                   }}
                 >
-                  <Link className="z-30" onClick={() => toggleOpen()} href="/#flexibilitaet">Flexibilität</Link>
+                  <Link className="z-30" onClick={() => toggleOpen()} href="#flexibilitaet">Flexibilität</Link>
                 </motion.li>
                 <motion.li
                   variants={{
@@ -248,7 +248,7 @@ const Navbar = ({ logo, alt, navbar, legals }: any) => {
                     closed: { opacity: 0 },
                   }}
                 >
-                  <Link className="z-30" onClick={() => toggleOpen()} href="/#sicherheit">Sicherheit</Link>
+                  <Link className="z-30" onClick={() => toggleOpen()} href="#sicherheit">Sicherheit</Link>
                 </motion.li>
                 <motion.li
                   variants={{
@@ -256,7 +256,7 @@ const Navbar = ({ logo, alt, navbar, legals }: any) => {
                     closed: { opacity: 0 },
                   }}
                 >
-                  <Link className="z-30" onClick={() => toggleOpen()} href="/#diskretion">Diskretion</Link>
+                  <Link className="z-30" onClick={() => toggleOpen()} href="#diskretion">Diskretion</Link>
                 </motion.li>
               </motion.ul>
             </motion.div>

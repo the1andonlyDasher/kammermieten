@@ -420,7 +420,7 @@ a {
   flex-direction: column;
   margin: 0 auto;
   position: relative;
-  padding: 1rem 0;
+  padding: var(--space-l) 0;
   &.mh_screen {
     min-height: calc(100vh - 100px);
     min-height: calc(100dvh - 100px);

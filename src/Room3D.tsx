@@ -202,7 +202,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   const rotations: any = {
     "Zur Not:": Math.PI / 2,
     "Bei uns?": Math.PI,
-    "In jedem Fall:": Math.PI * 1.5,
+    "Garantiert:": Math.PI * 1.5,
     "Lager' alles.": 0,
   }
 
@@ -228,7 +228,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
     } else {
       setTimeout(() => {
         controls.start("exit").then(() => { setDisposed(true), setInPage(false) })
-      }, 100)
+      }, 500)
     }
   }, [app]);
 
@@ -253,6 +253,14 @@ export function Model(props: JSX.IntrinsicElements['group']) {
     setScale(scale);
   }, [pvAtom]);
 
+  const rotationControls = useAnimation();
+
+  useEffect(() => {
+    rotationControls.start({
+      rotateX: 0.2,
+      rotateY: rotations[`${header1}`] + 0.5
+    })
+  }, [index]);
 
   const roomVariants = {
     initial: { y: -4, x: 50 },
@@ -261,23 +269,21 @@ export function Model(props: JSX.IntrinsicElements['group']) {
       y: pos[1],
       z: 0,
       scale: Math.max(0.5, Math.min(viewport.width / 12, 1.375)),
-      rotateX: 0.2,
-      rotateY: rotations[`${header1}`] + 0.5
     },
     exit: { x: 30, y: pos[1], z: 0, scale: 0 },
 
   }
 
   useEffect(() => {
-    app !== "landing" && inPage === true ? controls.start("exit") : app === "landing" && inPage === true ?
+    app === "landing" && inPage === true ?
       controls.start("enter") : controls.start("exit");
-  }, [pos, app, index, inPage]);
+  }, [pos, index, inPage]);
 
   return (
     <motion3d.group transition={{
       type: "spring", damping: 10, stiffness: 50, restDelta: 0.1
     }} visible={!disposed} initial="initial" variants={roomVariants} animate={controls} scale={1.5} dispose={null}>
-      <group name="Scene">
+      <motion3d.group transition={{ type: "spring", damping: 15, stiffness: 50, restDelta: 0.001 }} name="Scene" animate={rotationControls}>
         <group name="DummyRoot" position={[0, 1, 0.2]} rotation={[Math.PI / 2, 0, 0]} scale={0.05}>
           <SpotLight depthBuffer={depthBuffer} castShadow color={"blue"} position={[3, 6, 3]} ref={light} penumbra={1} distance={6} angle={0.35} attenuation={5} anglePower={4} intensity={2} />
           <group name="cis_inf_countdooku" position={[55.832, 52.146, -16.923]} scale={32.86}>
@@ -477,7 +483,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
           <mesh name="Plane003_1" geometry={nodes.Plane003_1.geometry} material={materials['Material.009']} />
           <mesh name="Plane003_2" geometry={nodes.Plane003_2.geometry} material={materials['Material.010']} />
         </group>
-      </group>
+      </motion3d.group>
     </motion3d.group>
 
   )
