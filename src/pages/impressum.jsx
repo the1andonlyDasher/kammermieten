@@ -93,9 +93,9 @@ export default function Impressum() {
           <p className="w-full">
             Geführt unter: H-C Gebäudereinigung <br />
             Mandy Männer <br />
-            Ludwigsburger Str.
+            Ludwigsburger Str.23
             <br />
-            23 71711 Steinheim an der Murr <br />
+            71711 Steinheim an der Murr <br />
             Tel. +49 [0]7144 9985962
             <br />
             info@h-c-gebaeudereinigung.de <br />
