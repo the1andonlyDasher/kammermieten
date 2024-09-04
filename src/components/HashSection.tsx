@@ -2,8 +2,7 @@ import React, { forwardRef, ReactElement, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { load, loc } from "@/ts/atoms";
-import { InView, useInView } from "react-intersection-observer";
-import { SelectField } from "@prismicio/client";
+import { useInView } from "react-intersection-observer";
 
 const variants = {
   initial: { y: 20, filter: "blur(20px)", opacity: 0 },
