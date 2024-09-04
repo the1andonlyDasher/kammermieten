@@ -169,7 +169,7 @@ export default function Home() {
 
   return (
     <>
-      <HSec sectionName="landing" id="landing" addClass='mh_screen'>
+      <HSec left single sectionName="landing" id="landing" addClass='mh_screen'>
 
         <motion.div className="relative flex  flex-col-reverse md:flex-row w-full h-full justify-center items-start">
           <motion.div className='flex flex-col justify-center w-full h-full gap-4'>
@@ -209,7 +209,7 @@ export default function Home() {
         </motion.div>
 
       </HSec>
-      <HSec id='flexibilitaet' sectionName="card1" addClass="">
+      <HSec left single id='flexibilitaet' sectionName="card1" addClass="">
 
         <motion.div variants={variants4} className="relative flex flex-col gap-6 w-full my-auto  rounded-xl py-10" >
           <motion.header variants={variants4} className={` text-[#140d05] text-6xl text-center md:text-left font-black my-4 ${ws.className}`}>Flexibilität</motion.header>
@@ -237,7 +237,7 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </HSec>
-      <HSec id='sicherheit' sectionName="card2" addClass="">
+      <HSec left single id='sicherheit' sectionName="card2" addClass="">
         <motion.div variants={variants4} className="relative flex flex-col gap-6 w-full my-auto  rounded-xl py-10" >
           <motion.header variants={variants4} className={` text-[#140d05] text-6xl text-center md:text-left font-black my-4 ${ws.className}`}>Sicherheit</motion.header>
 
@@ -257,7 +257,7 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </HSec>
-      <HSec id='diskretion' sectionName="card3" addClass="">
+      <HSec left single id='diskretion' sectionName="card3" addClass="">
         <motion.div variants={variants4} className="relative flex flex-col gap-6 w-full my-auto  rounded-xl py-10" >
           <motion.header variants={variants4} className={` text-[#140d05] text-6xl text-center md:text-left font-black my-4 ${ws.className}`}>Diskretion</motion.header>
 
@@ -278,10 +278,10 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </HSec>
-      <HSec>
+      <HSec left single autoHeight>
         <RoomNavigator />
       </HSec>
-      <HSec id='kontakt'>
+      <HSec left single id='kontakt'>
         <ContactForm props={{
           title: "Kontakt",
           subtitle: "Weil Brieftauben zu lange brauchen...",
