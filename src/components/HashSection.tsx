@@ -79,7 +79,7 @@ function Section(props: sectionProps) {
       {props.single ? (
         <>
           {props.header ? (
-            <motion.h2 className="text-[#98d06d] font-bold" variants={variants}>
+            <motion.h2 className="font-bold" variants={variants}>
               {props.header}
             </motion.h2>
           ) : null}
@@ -97,7 +97,7 @@ function Section(props: sectionProps) {
             <>
               <motion.div variants={variants} className="left-wrapper">
                 {props.header ? (
-                  <motion.h2 className="text-[#98d06d] font-bold" variants={variants}>
+                  <motion.h2 className=" font-bold" variants={variants}>
                     {props.header}
                   </motion.h2>
                 ) : null}
@@ -116,7 +116,7 @@ function Section(props: sectionProps) {
               <motion.div variants={variants} className="left-wrapper"></motion.div>
               <motion.div className="right-wrapper">
                 {props.header ? (
-                  <motion.h2 className="text-[#98d06d] font-bold" variants={variants}>
+                  <motion.h2 className=" font-bold" variants={variants}>
                     {props.header}
                   </motion.h2>
                 ) : null}
